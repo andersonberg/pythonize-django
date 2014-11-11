@@ -73,7 +73,7 @@ from __future__ import absolute_import, unicode_literals
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
-# BLOG_USE_FEATURED_IMAGE = True
+BLOG_USE_FEATURED_IMAGE = True
 
 # If True, the south application will be automatically added to the
 # INSTALLED_APPS setting.
@@ -113,11 +113,12 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "pt-br"
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
+    ('pt-br', _('Portuguese')),
     ('en', _('English')),
 )
 
@@ -133,7 +134,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
