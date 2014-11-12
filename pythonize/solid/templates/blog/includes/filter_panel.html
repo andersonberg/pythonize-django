@@ -60,6 +60,8 @@
 {% endif %}
 {% endblock %}
 
+{% comment %}
+
 {% block blog_keywords %}
 {% keywords_for blog.blogpost as tags %}
 {% if tags %}
@@ -112,3 +114,5 @@
     <a href="{% url "blog_post_feed" "atom" %}">{% trans "Atom" %}</a>
 {% endif %}
 {% endblock %}
+
+{% endcomment %}

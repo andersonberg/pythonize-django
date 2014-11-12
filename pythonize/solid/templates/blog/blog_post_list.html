@@ -149,6 +149,7 @@
 
 {% block blog_post_list_post_links %}
 <div class="blog-list-detail">
+    {% comment %}
     {% keywords_for blog_post as tags %}
     {% if tags %}
     <ul class="list-inline tags">
@@ -160,6 +161,7 @@
     {% endspaceless %}
     </ul>
     {% endif %}
+    {% endcomment %}
     <p>
     <a href="{{ blog_post.get_absolute_url }}">{% trans "[read more]" %}</a>
    
