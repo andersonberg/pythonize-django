@@ -84,16 +84,6 @@
 {% endeditable %}
 {% endblock %}
 
-{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
-{% block blog_post_list_post_featured_image %}
-<p>
-<a href="{{ blog_post.get_absolute_url }}">
-    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 770 0 %}">
-</a>
-</p>
-{% endblock %}
-{% endif %}
-
 {% block blog_post_list_post_metainfo %}
 {% editable blog_post.publish_date %}
 
@@ -139,7 +129,15 @@
 {% endeditable %}
 {% endblock %}
 
-
+{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+{% block blog_post_list_post_featured_image %}
+<p>
+<a href="{{ blog_post.get_absolute_url }}">
+    <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 400 0 %}">
+</a>
+</p>
+{% endblock %}
+{% endif %}
 
 {% block blog_post_list_post_content %}
 {% editable blog_post.content %}
