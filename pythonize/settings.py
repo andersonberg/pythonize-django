@@ -96,7 +96,6 @@ MANAGERS = ADMINS
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     '.pythonize.org',
-    '.pythonize.org.',
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -113,13 +112,13 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "pt-br"
+LANGUAGE_CODE = "pt-BR"
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('pt-br', _('Portuguese')),
-    ('en', _('English')),
+    ('pt-BR', _('Portuguese')),
+#    ('en', _('English')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -169,7 +168,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
         "NAME": "",
         # Not used with sqlite3.
@@ -216,6 +215,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = STATIC_URL + "media/"
 
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
@@ -227,7 +227,7 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # or "C:/www/django/templates".
 # Always use forward slashes, even on Windows.
 # Don't forget to use absolute paths, not relative paths.
-TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "solid/templates"),)
 
 
 ################
@@ -321,20 +321,20 @@ OPTIONAL_APPS = (
 # These settings are used by the default fabfile.py provided.
 # Check fabfile.py for defaults.
 
-# FABRIC = {
-#     "SSH_USER": "", # SSH username for host deploying to
-#     "HOSTS": ALLOWED_HOSTS[:1], # List of hosts to deploy to (eg, first host)
-#     "DOMAINS": ALLOWED_HOSTS, # Domains for public site
-#     "REPO_URL": "ssh://hg@bitbucket.org/user/project", # Project's repo URL
-#     "VIRTUALENV_HOME":  "", # Absolute remote path for virtualenvs
-#     "PROJECT_NAME": "", # Unique identifier for project
-#     "REQUIREMENTS_PATH": "requirements.txt", # Project's pip requirements
-#     "GUNICORN_PORT": 8000, # Port gunicorn will listen on
-#     "LOCALE": "en_US.UTF-8", # Should end with ".UTF-8"
-#     "DB_PASS": "", # Live database password
-#     "ADMIN_PASS": "", # Live admin user password
-#     "SECRET_KEY": SECRET_KEY,
-#     "NEVERCACHE_KEY": NEVERCACHE_KEY,
+#FABRIC = {
+#    "SSH_USER": "", # SSH username for host deploying to
+#    "HOSTS": ALLOWED_HOSTS[:1], # List of hosts to deploy to (eg, first host)
+#    "DOMAINS": ALLOWED_HOSTS, # Domains for public site
+#    "REPO_URL": "ssh://git@github.com:andersonberg/pythonize-django.git", # Project's repo URL
+#    "VIRTUALENV_HOME":  "/venv_pythonize", # Absolute remote path for virtualenvs
+#    "PROJECT_NAME": "pythonize", # Unique identifier for project
+#    "REQUIREMENTS_PATH": "requirements.txt", # Project's pip requirements
+#    "GUNICORN_PORT": 8000, # Port gunicorn will listen on
+#    "LOCALE": "pt_BR.UTF-8", # Should end with ".UTF-8"
+#    "DB_PASS": "", # Live database password
+#    "ADMIN_PASS": "", # Live admin user password
+#    "SECRET_KEY": SECRET_KEY,
+#    "NEVERCACHE_KEY": NEVERCACHE_KEY,
 # }
 
 
