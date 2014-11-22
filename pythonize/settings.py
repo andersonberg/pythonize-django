@@ -79,6 +79,9 @@ BLOG_USE_FEATURED_IMAGE = True
 # INSTALLED_APPS setting.
 USE_SOUTH = True
 
+SECRET_KEY = "4780d6cf-335a-4e2a-8236-29a557f471f8b819188b-f3b4-4724-866d-0132fdc57b5cb8a58f84-cf87-48c2-b517-d18c0475af58"
+NEVERCACHE_KEY = "086f1cbb-a5a5-4448-bfe9-8205b49fa774ce5fee0c-dce6-4801-a6c8-26898073151af139a2bd-2eea-42a0-a6e7-8e96f66c2ae4"
+
 
 ########################
 # MAIN DJANGO SETTINGS #
@@ -96,6 +99,7 @@ MANAGERS = ADMINS
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     '.pythonize.org',
+    'pythonize.org',
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -170,7 +174,7 @@ DATABASES = {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": "/webapps/pythonize_django/pythonize-django/pythonize/dev.db",
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -235,7 +239,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "solid/templates"),)
 ################
 
 INSTALLED_APPS = (
-    "solid",
+    "pythonize.solid",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -368,3 +372,50 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.NullHandler',
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': "/webapps/pythonize_django/logs/app.log",
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+            'propagate': True,
+            'level': 'WARN',
+        },
+        'django.db.backends': {
+            'handlers': ['logfile'],
+            'level': 'CRITICAL',
+            'propagate': True,
+        },
+        'MYAPP': {
+            'handlers': ['console', 'logfile'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
