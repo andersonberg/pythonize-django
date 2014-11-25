@@ -5,6 +5,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 
 from mezzanine.core.views import direct_to_template
+import mezzanine_pagedown.urls
 
 
 admin.autodiscover()
@@ -20,6 +21,8 @@ urlpatterns = i18n_patterns("",
 )
 
 urlpatterns += patterns('',
+    
+    ("^pagedown/", include(mezzanine_pagedown.urls)),
 
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
@@ -85,7 +88,7 @@ urlpatterns += patterns('',
     # Note that for any of the various homepage patterns above, you'll
     # need to use the ``SITE_PREFIX`` setting as well.
 
-    # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
+    # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))a
 
 )
 

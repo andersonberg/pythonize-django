@@ -98,8 +98,8 @@ MANAGERS = ADMINS
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
-    '.pythonize.org',
     'pythonize.org',
+    '.pythonize.org',
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -172,12 +172,16 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        #"ENGINE": "django.db.backends.postgresql_psycopg2",
         "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
+        #"NAME": "pythonize_django",
         "NAME": "/webapps/pythonize_django/pythonize-django/pythonize/dev.db",
         # Not used with sqlite3.
+        #"USER": "apps",
         "USER": "",
         # Not used with sqlite3.
+        #"PASSWORD": "pgr4z22x",
         "PASSWORD": "",
         # Set to empty string for localhost. Not used with sqlite3.
         "HOST": "",
@@ -240,6 +244,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "solid/templates"),)
 
 INSTALLED_APPS = (
     "pythonize.solid",
+    "mezzanine_pagedown",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -317,6 +322,17 @@ OPTIONAL_APPS = (
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
+
+
+#####################
+# PAGEDOWN SETTINGS #
+#####################
+#RICHTEXT_WIDGET_CLASS = 'mezzanine_pagedown.widgets.PageDownWidget'
+#RICHTEXT_FILTER = 'mezzanine_pagedown.filters.custom'
+#RICHTEXT_FILTERS = (RICHTEXT_FILTER,)
+#PAGEDOWN_MARKDOWN_EXTENSIONS = ('extra','codehilite','toc')
+#RICHTEXT_FILTER_LEVEL = 3
+#PAGEDOWN_SERVER_SIDE_PREVIEW = True
 
 ###################
 # DEPLOY SETTINGS #
@@ -418,4 +434,6 @@ LOGGING = {
         },
     }
 }
+
+SITE_TITLE="Pythonize"
 
