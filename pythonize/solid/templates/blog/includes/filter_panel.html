@@ -6,7 +6,7 @@
 <h4>{% trans "Recent Posts" %}</h4>
 <div class="hline"></div>
 <ul class="popular-posts">
-{% for recent_post in recent_posts %}
+{% for recent_post in recent_posts|sort_by:"comments_count" %}
 <li>
 	
 	{% if settings.BLOG_USE_FEATURED_IMAGE and recent_post.featured_image %}
@@ -59,6 +59,8 @@
 
 {% endif %}
 {% endblock %}
+<script id='_sc252' type='text/javascript' src='//ad.socialclique.com.br/s/?el=sc252&ty=5&sid=3948&uid=183534'></script>
+                                
 
 {% comment %}
 
