@@ -175,7 +175,7 @@ img.pull-left {
 ==========================================*/
 
 .blog-list-detail {
-  border-bottom: 1px dashed #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
   margin-bottom: 30px;
   padding-bottom: 15px;
 }
