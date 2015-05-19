@@ -244,6 +244,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "solid/templates"),)
 
 INSTALLED_APPS = (
     "pythonize.solid",
+    "pythonize.aberg",
     "mezzanine_pagedown",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -262,6 +263,7 @@ INSTALLED_APPS = (
     "mezzanine.pages",
     "mezzanine.galleries",
     "mezzanine.twitter",
+    "djrill",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
 )
@@ -327,12 +329,12 @@ OPTIONAL_APPS = (
 #####################
 # PAGEDOWN SETTINGS #
 #####################
-#RICHTEXT_WIDGET_CLASS = 'mezzanine_pagedown.widgets.PageDownWidget'
-#RICHTEXT_FILTER = 'mezzanine_pagedown.filters.custom'
-#RICHTEXT_FILTERS = (RICHTEXT_FILTER,)
-#PAGEDOWN_MARKDOWN_EXTENSIONS = ('extra','codehilite','toc')
-#RICHTEXT_FILTER_LEVEL = 3
-#PAGEDOWN_SERVER_SIDE_PREVIEW = True
+RICHTEXT_WIDGET_CLASS = 'mezzanine_pagedown.widgets.PageDownWidget'
+RICHTEXT_FILTER = 'mezzanine_pagedown.filters.custom'
+RICHTEXT_FILTERS = (RICHTEXT_FILTER,)
+PAGEDOWN_MARKDOWN_EXTENSIONS = ('extra','codehilite','toc')
+RICHTEXT_FILTER_LEVEL = 3
+PAGEDOWN_SERVER_SIDE_PREVIEW = True
 
 ###################
 # DEPLOY SETTINGS #
@@ -436,4 +438,3 @@ LOGGING = {
 }
 
 SITE_TITLE="Pythonize"
-
