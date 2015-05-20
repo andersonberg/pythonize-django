@@ -438,3 +438,8 @@ LOGGING = {
 }
 
 SITE_TITLE="Pythonize"
+
+DEFAULT_FROM_EMAIL="andersonberg@gmail.com"
+DEFAULT_TO_EMAIL="andersonberg@gmail.com"
+EMAIL_BACKEND = 'djrill.mail.backends.djrill.DjrillBackend'
+MANDRILL_API_KEY="PN6s1l3j5MH7hh2rEYnaig"
